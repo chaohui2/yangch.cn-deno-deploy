@@ -10,7 +10,7 @@ async function handleRequest(request: Request) {
     // Check if the request is for style.css.
     var exts = ['.html', '.css', '.js']
     if (exts.some((ext) => pathname.endsWith(ext))) {
-        const style = new URL('/static'+pathname, import.meta.url)
+        const style = new URL('static'+pathname, import.meta.url)
         return new Response(JSON.stringify(style))
         console.log(style)
         const response = await fetch(style)
