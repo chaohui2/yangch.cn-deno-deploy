@@ -14,8 +14,10 @@ async function handleRequest(request: Request) {
         const response = await fetch(style)
         response.headers.set("content-type",mime.getType(pathname)+";charset=utf-8")
         return response;
-    } else if (pathname.startsWith("/test1")) {
-        return new Response(import.meta.url)
+    } else if (pathname.endsWith(".md")) {
+        const markdownUrl = new URL(pathname, import.meta.url)
+        const response = await fetch(markdownUrl)
+        return new Response(response.body)
     }
 
     return new Response(
