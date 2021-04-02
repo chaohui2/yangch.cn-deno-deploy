@@ -10,7 +10,7 @@ async function handleRequest(request: Request) {
     // Check if the request is for style.css.
     var exts = ['.html', '.css', '.js']
     if (exts.some((ext) => pathname.endsWith(ext))) {
-        const style = new URL(pathname.split('/').reverse()[0], import.meta.url+'/static/')
+        const style = new URL('/static'+pathname.split('/').reverse()[0], import.meta.url)
         const response = await fetch(style)
         response.headers.set("content-type",mime.getType(pathname)+";charset=utf-8")
         return response;
