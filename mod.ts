@@ -16,6 +16,7 @@ async function handleRequest(request: Request) {
         return response;
     } else if (pathname.endsWith(".md")) {
         const markdownUrl = new URL(pathname, import.meta.url)
+        console.log(markdownUrl)
         const response = await fetch(markdownUrl)
         return response
     }
