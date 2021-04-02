@@ -11,8 +11,6 @@ async function handleRequest(request: Request) {
     var exts = ['.html', '.css', '.js']
     if (exts.some((ext) => pathname.endsWith(ext))) {
         const style = new URL('static'+pathname, import.meta.url)
-        return new Response(JSON.stringify(style))
-        console.log(style)
         const response = await fetch(style)
         response.headers.set("content-type",mime.getType(pathname)+";charset=utf-8")
         return response;
