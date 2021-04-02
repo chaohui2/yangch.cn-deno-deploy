@@ -1,4 +1,4 @@
-import mime from "https://raw.githubusercontent.com/broofa/mime/master/index.js";
+import mime from "https://dev.jspm.io/npm:mime/index.js";
 async function handleRequest(request: Request) {
     const { pathname } = new URL(request.url);
 
