@@ -16,7 +16,9 @@ async function handleRequest(request: Request) {
       response.headers.set("content-type", "text/css; charset=utf-8");
       // Return the response with modified content-type header.
       return response;
-    }
+    }else if (pathname.startsWith("/test1")) {
+        return new Response(import.meta.url);
+      }
   
     return new Response(
       `<html>
